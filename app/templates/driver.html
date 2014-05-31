@@ -7,8 +7,107 @@
 	<link rel="stylesheet" href="../assets/stylesheets/bootstrap.css">
 	<link rel="stylesheet" href="../assets/stylesheets/application.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet'>
+	<style>
+		.bus {
+			max-width: 640px;
+			margin: 0 auto;
+			padding: 0 20px;
+			border: 5px solid gray;
+		}
+
+		.bus-front {
+			border-width: 0 5px 5px 5px;
+			border-color: gray;
+			border-style: solid; 
+			height: 200px;
+		}
+
+		.seat {
+			padding-top: 20px;
+		}
+
+		.seat.last {
+			padding-bottom: 20px;
+		}
+
+		.seat.left {
+			text-align: left;
+			border-right: 5px solid gray;
+		}
+
+		.seat.right {
+			text-align: right;
+			border-left: 5px solid gray;
+		}
+
+		.seat img {
+			border: 1px solid gray;
+			padding: 5px;
+			height: 100px;
+			-webkit-transition: .3s all;
+			-moz-transition: .3s all;
+			-ms-transition: .3s all;
+			transition: .3s all;
+		}
+
+		.seat img:hover {
+			-webkit-transform: scale(1.05);
+			-moz-transform: scale(1.05);
+			-ms-transform: scale(1.05);
+			transform: scale(1.05);
+		}
+	</style>
 </head>
 <body>
+
+	<div class="container">
+		<div class="bus">
+			<div class="bus-front"></div>
+			<div class="row seats">
+				<div class="col-md-6 col-sm-6 col-xs-6 seat left">
+					<img src="../assets/images/seat.png" alt="">
+					<img src="../assets/images/seat.png" alt="">
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-6 seat right">
+					<img src="../assets/images/seat.png" alt="">
+					<img src="../assets/images/seat.png" alt="">
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-6 seat left">
+					<img src="../assets/images/seat.png" alt="">
+					<img src="../assets/images/seat.png" alt="">
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-6 seat right">
+					<img src="../assets/images/seat.png" alt="">
+					<img src="../assets/images/seat.png" alt="">
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-6 seat left">
+					<img src="../assets/images/seat.png" alt="">
+					<img src="../assets/images/seat.png" alt="">
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-6 seat right">
+					<img src="../assets/images/seat.png" alt="">
+					<img src="../assets/images/seat.png" alt="">
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-6 seat left">
+					<img src="../assets/images/seat.png" alt="">
+					<img src="../assets/images/seat.png" alt="">
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-6 seat right">
+					<img src="../assets/images/seat.png" alt="">
+					<img src="../assets/images/seat.png" alt="">
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-6 seat left last">
+					<img src="../assets/images/seat.png" alt="">
+					<img src="../assets/images/seat.png" alt="">
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-6 seat right last">
+					<img src="../assets/images/seat.png" alt="">
+					<img src="../assets/images/seat.png" alt="">
+				</div>
+
+			</div>
+		</div>
+	</div>
 
 	<script src="../assets/javascripts/jquery.min.js"></script>
 	<script src="../assets/javascripts/underscore.min.js"></script>
