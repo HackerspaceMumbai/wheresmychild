@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :children
+
   resources :buses
   root 'buses#index'
   get 'buses/:id/current_location' => 'buses#show'
