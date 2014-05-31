@@ -2,6 +2,18 @@ class ChildrenController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:show, :edit, :update, :destroy]
   before_action :set_child, only: [:show, :edit, :update, :destroy]
 
+  def login
+    render file: '/home/mayur/rubyprac/wheresmychild/app/templates/login.html'
+  end
+
+  def driver
+    render file: '/home/mayur/rubyprac/wheresmychild/app/templates/driver.html'
+  end
+  
+  def admin
+    render file: '/home/mayur/rubyprac/wheresmychild/app/templates/admin.html'
+  end
+
   def parent
     render file: '/home/mayur/rubyprac/wheresmychild/app/templates/parent.html'
   end
