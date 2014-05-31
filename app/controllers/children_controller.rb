@@ -3,19 +3,19 @@ class ChildrenController < ApplicationController
   before_action :set_child, only: [:show, :edit, :update, :destroy]
 
   def login
-    render file: '/home/mayur/rubyprac/wheresmychild/app/templates/login.html'
+    render template: 'templates/login.html.erb'
   end
 
   def driver
-    render file: '/home/mayur/rubyprac/wheresmychild/app/templates/driver.html'
+    render template: 'templates/driver.html.erb'
   end
   
   def admin
-    render file: '/home/mayur/rubyprac/wheresmychild/app/templates/admin.html'
+    render template: 'admin.html.erb'
   end
 
   def parent
-    render file: '/home/mayur/rubyprac/wheresmychild/app/templates/parent.html'
+    render template: 'templates/parent.html.erb'
   end
   # GET /children
   # GET /children.json
