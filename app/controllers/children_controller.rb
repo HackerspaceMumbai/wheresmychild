@@ -1,4 +1,5 @@
 class ChildrenController < ApplicationController
+  skip_before_filter :verify_authenticity_token, only: [:show, :edit, :update, :destroy]
   before_action :set_child, only: [:show, :edit, :update, :destroy]
 
   def parent
