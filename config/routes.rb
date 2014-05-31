@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get 'buses/:id/current_location' => 'buses#show'
   post 'buses/:id/current_location' => 'buses#update'
   get 'parent' => 'children#parent'
+  get 'admin' => 'children#admin'
+  get 'login' => 'children#login'
+  get 'driver' => 'children#driver'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
