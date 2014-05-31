@@ -1,6 +1,9 @@
 class ChildrenController < ApplicationController
   before_action :set_child, only: [:show, :edit, :update, :destroy]
 
+  def parent
+    render file: '/home/mayur/rubyprac/wheresmychild/app/templates/parent.html'
+  end
   # GET /children
   # GET /children.json
   def index
