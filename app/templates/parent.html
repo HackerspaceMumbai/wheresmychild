@@ -40,8 +40,30 @@
 
 		function initialize() {
 			directionsDisplay = new google.maps.DirectionsRenderer();
+			
+
+			$.ajax({
+				url: 'http://10.228.153.188:3000/buses/1.json',
+				type: 'GET',
+				datatype: 'jsonp',
+				contentType: "application/json",
+				success: function (data) {
+					renderMaps(data.location);
+				},
+				error: function (data) {
+					console.log(data);
+				}
+			});
+		}
+
+		function renderMaps (location) {
+			location = location.split(",");
+			location = {
+				lat: location[0],
+				lang: location[1].trim(" ")
+			};
 			var image = '../assets/images/bus.png';
-			var myLatLng = new google.maps.LatLng(18.563181, 73.84062);
+			var myLatLng = new google.maps.LatLng(location.lat, location.lang);
 			var mapOptions = {
 				zoom:16,
 				center: myLatLng
@@ -53,19 +75,6 @@
 				position: myLatLng,
 				map: map,
 				icon: image
-			});
-
-			$.ajax({
-				url: 'http://10.228.153.188:3000/buses/1.json',
-				type: 'GET',
-				datatype: 'jsonp',
-				contentType: "application/json",
-				success: function (data) {
-					console.log(data);
-				},
-				error: function (data) {
-					console.log(data);
-				}
 			});
 		}
 
