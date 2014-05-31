@@ -129,7 +129,7 @@
 			//		//"location": lat.toString() + ", " + lang.toString()
 			//		location: "hello"
 			//	},
-		        data: JSON.stringify({'location':'abc'}),
+		        data: JSON.stringify({'location':lat.toString() + ", " + lang.toString()}),
 						success: function (data) {
 							console.log(data);
 						},
