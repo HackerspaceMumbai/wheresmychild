@@ -59,8 +59,8 @@
 		function renderMaps (location) {
 			location = location.split(",");
 			location = {
-				lat: location[0],
-				lang: location[1].trim(" ")
+				lat: location[0].trim(),
+				lang: location[1].trim()
 			};
 			var image = '../assets/images/bus.png';
 			var myLatLng = new google.maps.LatLng(location.lat, location.lang);
