@@ -7,9 +7,72 @@
 	<link rel="stylesheet" href="../assets/stylesheets/bootstrap.css">
 	<link rel="stylesheet" href="../assets/stylesheets/application.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet'>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<style>
+	#map-canvas {
+		height: 80vh;
+	}
+
+	#status {
+		height: 20vh;
+		line-height: 20vh;
+		text-align: center;
+		background: #4DA9CA;
+		color: white;
+		font-size: 2em;
+	}
+</style>
 </head>
 <body>
 
+	<div class="container-fluid">
+		<div id="map-canvas" class="row">
+		</div>
+		<div id="status" class="row">
+			Logout
+		</div>
+	</div>
+
+	<script>
+		var directionsDisplay;
+		var directionsService = new google.maps.DirectionsService();
+		var map;
+
+		function initialize() {
+			directionsDisplay = new google.maps.DirectionsRenderer();
+			var chicago = new google.maps.LatLng(18.563181, 73.84062);
+			var mapOptions = {
+				zoom:16,
+				center: chicago
+			};
+			map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			directionsDisplay.setMap(map);
+			
+			var image = '../assets/images/bus.png';
+			var myLatLng = new google.maps.LatLng(18.563181, 73.84062);
+			new google.maps.Marker({
+				position: myLatLng,
+				map: map,
+				icon: image
+			});
+
+			$.ajax({
+				url: 'http://10.228.153.188:3000/buses/1',
+				type: 'GET',
+				contentType: "application/json",
+				success: function (data) {
+					console.log(data);
+				},
+				error: function (data) {
+					console.log(data);
+				}
+			});
+			
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
 	<script src="../assets/javascripts/jquery.min.js"></script>
 	<script src="../assets/javascripts/underscore.min.js"></script>
 	<script src="../assets/javascripts/backbone.min.js"></script>
