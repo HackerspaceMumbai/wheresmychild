@@ -162,16 +162,17 @@
 			event.preventDefault();
 			
 			$(".modal").modal();
+			var childId = $(this).parent().index() * 2 + $(this).index() + 1;
 
 			$.ajax({
-				url: 'http://10.228.153.188:3000/children/1.json',
+				url: 'http://10.228.153.188:3000/children/' + childId + '.json',
 				success: function (response) {
 					var seatTempalteStr = _.template($("#seatTemplate").html(), response);
 					$(".modal-body").html(seatTempalteStr);
 					$(".modal-content").html(seatTempalteStr).find(".change-status").on('click', function() {
 						event.preventDefault();
 						
-						updateData("children/1.json", {
+						updateData("children/" + childId + ".json", {
 							status: this.innerHTML.toLowerCase()
 						});
 					});
