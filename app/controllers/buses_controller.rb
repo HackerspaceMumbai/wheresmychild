@@ -42,7 +42,7 @@ class BusesController < ApplicationController
   # PATCH/PUT /buses/1.json
   def update
     respond_to do |format|
-      UserMailer.notification_mail().deliver
+      # UserMailer.notification_mail().deliver
       if @bus.update(bus_params)
         format.html { redirect_to @bus, notice: 'Bus was successfully updated.' }
         format.json { render :show, status: :ok, location: @bus }
