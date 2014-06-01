@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531134257) do
+ActiveRecord::Schema.define(version: 20140601041409) do
 
   create_table "buses", force: true do |t|
     t.text     "location"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140531134257) do
     t.datetime "updated_at"
     t.text     "time"
     t.integer  "bus_id"
+    t.text     "name"
   end
 
 end
