@@ -114,6 +114,38 @@
 	<script src="../assets/javascripts/backbone.min.js"></script>
 	<script src="../assets/javascripts/bootstrap.js"></script>
 	
+	<div class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title child-name">Modal title</h4>
+				</div> -->
+				<div class="modal-body">
+					<p></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<script type="text/template" id="seatTemplate">
+		<p class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h1><%= name %></h1>
+					<h2>Status: <%= status %></h2>
+				</div>
+				<div class="col-md-6">
+					<img src="../../assets/images/1.png"/>
+				</div>
+			</div>
+
+		</p>
+	</script>
+
 	<script>
 		navigator.geolocation.watchPosition(function(position) {
 			updateBusLocation(position.coords.latitude, position.coords.longitude);
@@ -124,20 +156,39 @@
 				url: 'buses/1.json',
 				type: 'PATCH',
 				contentType: 'application/json',
-        		dataType:"json",
-			//	data: {
-			//		//"location": lat.toString() + ", " + lang.toString()
-			//		location: "hello"
-			//	},
-		        data: JSON.stringify({'location':lat.toString() + ", " + lang.toString()}),
-						success: function (data) {
-							console.log(data);
-						},
-						error: function (data) {
-							console.log(data);
-						}
-					});
+				dataType:"json",
+				data: JSON.stringify({
+					'location':lat.toString() + ", " + lang.toString()
+				}),
+				success: function (data) {
+					console.log(data);
+				},
+				error: function (data) {
+					console.log(data);
 				}
+			});
+		}
+
+		$(".seat img").on('click', function(event) {
+			event.preventDefault();
+
+			$(".modal").modal();
+
+			$.ajax({
+				url: 'http://10.228.153.188:3000/children/1.json',
+				success: function (response) {
+					var seatTempalteStr = _.template($("#seatTemplate").html(), response);
+					$(".modal-body").html(seatTempalteStr);
+				},
+				error: function () {
+					// var response = {"id":1,"name":"Pappu","status":"travelling","parent_cell":"778899334422","created_at":"2014-05-31T12:38:50.987Z","updated_at":"2014-06-01T04:17:18.233Z"};
+
+					// var seatTempalteStr = _.template($("#seatTemplate").html(), response);
+
+					// $(".modal-body").html(seatTempalteStr);
+				}
+			});
+		});
 	</script>
 </body>
 </html>
