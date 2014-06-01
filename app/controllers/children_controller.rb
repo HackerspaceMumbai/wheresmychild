@@ -58,6 +58,9 @@ class ChildrenController < ApplicationController
   def update
     respond_to do |format|
       if @child.update(child_params)
+        if child_params[:status] == "on bus" || child_params[:status] == "reached home"
+          UserMailer.notification_mail(child_params[:status]).deliver
+        end
         format.html { redirect_to @child, notice: 'Child was successfully updated.' }
         format.json { render :show, status: :ok, location: @child }
       else
