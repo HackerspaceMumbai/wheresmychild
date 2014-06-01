@@ -127,8 +127,8 @@
 			<p class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<h1><%= name %></h1>
-						<h2>Status: <%= status %></h2>
+						<h1>{{= name }}</h1>
+						<h2>Status: {{= status }}</h2>
 					</div>
 					<div class="col-md-6">
 						<img src="../../assets/images/1.png"/>
@@ -144,6 +144,13 @@
 	</script>
 	
 	<script>
+		// Interploation setings for underscore
+		_.templateSettings = {
+		    evaluate:    /\{\{(.+?)\}\}/g,
+		    interpolate: /\{\{=(.+?)\}\}/g,
+		    escape:      /\{\{-(.+?)\}\}/g
+		};
+
 		navigator.geolocation.watchPosition(function(position) {
 			updateData('buses/1.json', {
 				'location': position.coords.latitude.toString() + ", " + position.coords.longitude.toString()
