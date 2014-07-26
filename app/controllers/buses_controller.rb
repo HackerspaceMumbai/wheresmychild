@@ -1,3 +1,4 @@
+# wowo
 class BusesController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:show, :edit, :update, :destroy]
   before_action :set_bus, only: [:show, :edit, :update, :destroy]
